@@ -1,8 +1,11 @@
 import requests
 import pprint
 import json
-url = "https://fakestoreapi.com/products"
+
+url = "https://fakestoreapi.com/products/categories"
 response = requests.get(url).json()
-for i in response:
-    print(f'Имя: {i["title"]}')
+print(response)
+
+
+
 
