@@ -15,8 +15,9 @@ for i in response:
     if i == a:
          url_a = f"https://fakestoreapi.com/products/category/{a}?sort=desc"
          response_a = requests.get(url_a).json()
-         d = json.dumps(response_a, indent=4)
-         print('Товары категории:', a, d)
+         print('Товары категории:', a)
+         for i in response_a:
+            print(f'Название: {i['title']}\nКатегория: {i['category']} \nЦена: ${i['price']} \nОписание: {i['description']}\n')
          flag = True
 if not flag:
     print('Нет такой категории товара')    
