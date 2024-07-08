@@ -1,0 +1,109 @@
+html, body {
+    font-family: 'Arial';
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    
+}
+.img img{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+.block {
+    background: #bdbdbd;
+    padding-bottom: 10px;
+}
+.block p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.menu {
+    display: flex;
+}
+a {
+    text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+ul.mainmenu {
+    list-style: none;
+    height: 60px;
+    margin: auto;
+    padding: 0;
+    color: #fdc073;
+    font-size: 20px;
+    overflow: hidden;
+}
+ul.mainmenu li {
+    float: left;
+    margin: 18px 40px 0 50px;
+    border: 3px solid white;
+    border-radius:15px ;
+}
+ul.mainmenu li.last {
+    float: right;
+}
+ul.mainmenu li a {
+    text-decoration: none;
+    margin: 9px;
+    font-size: 32px;
+}
+ul.mainmenu li a:hover {
+    color: #FDA83D;
+}
+.content {
+    margin:auto;
+    width: 65%;
+}
+#new {
+    display: flex;
+}
+.content h2 {
+    padding: 10px 0 0 20px;
+}
+.content p {
+    padding-left: 20px;
+}
+.content a{
+    padding: 10px 0 0 20px;
+}
+.content h1 {
+    margin-bottom: 0;
+}
+.form-contact input {
+    font-size: 25px;
+}
+.form-contact textarea {
+    width: 99%;
+    height: 200px;
+    font-size: 20px;
+    font-family: 'Arial';
+    
+}
+#inp input{
+    height: 30px;
+    font-size: 20px;
+}
+#pos input {
+    position: absolute;
+}
+.mini_block {
+    padding-left: 15px;
+    border-left: 1px solid black;
+}
+.mini_block p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 280px;
+    overflow: hidden;
+    padding: 0;
+
+}
+.m_block{
+    border-bottom: 1px solid black;
+}

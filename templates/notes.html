@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% for i in data %}
+<div class="block">
+<h2>{{ i.heading }}</h2>
+<p>{{ i.text }}</p>
+<p><b>{{ i.date.date() }}</b></p>
+<a href="/notes/{{i.id}}">Удалить</a>
+<a href="/notes/{{i.id}}/info">Детальней</a>
+
+</div>
+{% endfor %}
+
+
+
+
+
+{% endblock %}

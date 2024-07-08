@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<div id="new">
+<div>
+    <h1>Создать заметку</h1>
+    {% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<form method="POST" class="form-contact">
+    {{ form.csrf_token }}
+    <h2>{{ form.heading.label }}</h2><p id="inp">{{ form.heading(size=100) }}</p>
+    <h2>{{ form.text.label }}</h2><p id="inp" id="pos">{{ form.text(size=100) }}</p>
+<p><input type="submit" value="Отправить"></p>
+</form>
+</div>
+<div class="mini_block">
+<h1>Сохраненные записи</h1>
+
+{% for i in data %}  
+<div class="m_block">
+<h3>{{i.heading}}</h3>
+<p>{{ i.text}}</p>
+<p><b>{{ i.date.date() }}</b><a href="/notes/{{i.id}}/info">Детальней</a></p>
+</div>
+{% endfor %}
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+
+<h1>Редактирование</h1>
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{ msg }}</div>
+{% endfor %}
+<form method="POST" class="form-contact">
+    {{ form.csrf_token }}
+    <h2>{{ form.heading.label }}</h2><p id="inp">{{ form.heading(size=100) }}</p>
+    <h2>{{ form.text.label }}</h2><p id="inp" id="pos">{{ form.text(height=300 ,size=100) }}</p>
+    
+<p><input type="submit" value="Отправить"></p>
+</form>
+
+{% endblock %}
