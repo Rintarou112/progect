@@ -8,9 +8,13 @@
 {% endfor %}
 <form method="POST" class="form-contact">
     {{ form.csrf_token }}
-    <h2>{{ form.heading.label }}</h2><p id="inp">{{ form.heading(size=100) }}</p>
-    <h2>{{ form.text.label }}</h2><p id="inp" id="pos">{{ form.text(height=300 ,size=100) }}</p>
+    {% for i in data %}
     
+    <h2>{{ form.heading.label }}</h2><p id="inp">{{ form.heading(value=i.heading) }}</p>
+    
+    <h2>{{ form.text.label }}</h2><p id="inp"><textarea id="body" name="text">{{ i.text }}</textarea>       
+    </p>
+    {% endfor %}
 <p><input type="submit" value="Отправить"></p>
 </form>
 

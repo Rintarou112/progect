@@ -28,7 +28,7 @@ class Note(db.Model):
     __tablename__="notes"
     id = db.Column(db.Integer, primary_key=True)
     heading = db.Column(db.String(120))
-    text = db.Column(db.Text)
+    text = db.Column(db.String(120))
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __init__(self, heading, text):
@@ -82,16 +82,26 @@ def info(id):
     data = Note.query.filter_by(id=id).all()
     for i in data:
         name = i.heading
-        
+    
     return render_template('notes_info.html', title=name, menu=menu, data=data )
     
-@app.route("/notes/<int:id>/update")
+@app.route("/notes/<int:id>/update", methods=['POST', 'GET'])
 def update(id):
     data = Note.query.filter_by(id=id).all()
     for i in data:
         name = i.heading
     form = MyNote()
-    
+    if request.method == 'POST':
+        data = Note.query.get(id)
+        if form.validate_on_submit():
+            form = MyNote()
+            data.heading = form.data['heading']
+            data.text = form.data['text']
+            try:
+                db.session.commit()
+                return redirect(url_for('notes'))
+            except:
+                return 'Ошибка'
     return render_template('notes_update.html', title=name, menu=menu, data=data, form=form )
     
     
